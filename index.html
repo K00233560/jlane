@@ -12,163 +12,77 @@
 	</script>	
 	<meta name="google-site-verification" content="8uge4eXK5by_NWSwXsI-5_mKVMCUr9Aa0sTaLfqqkLk" />
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JoanLane.ie Homepage</title>
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text&display=swap" rel="stylesheet">
-    <script src="js/edited.js"></script>
-    <script src="js/jquery.fittext.js"></script>
-    <script src="js/jquery.lettering.js"></script>
-    <script src="jquery.textillate.js"></script>
-    <script>
-    $(function (){
-    var log = function (msg) {
-      return function () {
-        if (console) console.log(msg);
-      }
-    }
-    $('code').each(function () {
-      var $this = $(this);
-      $this.text($this.html());
-    })
-
-    var animateClasses = 'flash bounce shake tada swing wobble pulse flip flipInX flipOutX flipInY flipOutY fadeIn fadeInUp fadeInDown fadeInLeft fadeInRight fadeInUpBig fadeInDownBig fadeInLeftBig fadeInRightBig fadeOut fadeOutUp fadeOutDown fadeOutLeft fadeOutRight fadeOutUpBig fadeOutDownBig fadeOutLeftBig fadeOutRightBig bounceIn bounceInDown bounceInUp bounceInLeft bounceInRight bounceOut bounceOutDown bounceOutUp bounceOutLeft bounceOutRight rotateIn rotateInDownLeft rotateInDownRight rotateInUpLeft rotateInUpRight rotateOut rotateOutDownLeft rotateOutDownRight rotateOutUpLeft rotateOutUpRight hinge rollIn rollOut';
-
-    var $form = $('.playground form')
-      , $viewport = $('.playground .viewport');
-
-    var getFormData = function () {
-      var data = {
-        loop: true,
-        in: { callback: log('in callback called.') },
-        out: { callback: log('out callback called.') }
-      };
-
-      $form.find('[data-key="effect"]').each(function () {
-        var $this = $(this)
-          , key = $this.data('key')
-          , type = $this.data('type');
-
-          data[type][key] = $this.val();
-      });
-
-      $form.find('[data-key="type"]').each(function () {
-        var $this = $(this)
-          , key = $this.data('key')
-          , type = $this.data('type')
-          , val = $this.val();
-
-          data[type].shuffle = (val === 'shuffle');
-          data[type].reverse = (val === 'reverse');
-          data[type].sync = (val === 'sync');
-      });
-
-      return data;
-    };
-
-    $.each(animateClasses.split(' '), function (i, value) {
-      var type = '[data-type]'
-        , option = '<option value="' + value + '">' + value + '</option>';
-
-      if (/Out/.test(value) || value === 'hinge') {
-        type = '[data-type="out"]';
-      } else if (/In/.test(value)) {
-        type = '[data-type="in"]';
-      }
-
-      if (type) {
-        $form.find('[data-key="effect"]' + type).append(option);
-      }
-    });
-
-    $form.find('[data-key="effect"][data-type="in"]').val('flip');
-    $form.find('[data-key="effect"][data-type="out"]').val('flip');
-
-    $('.jumbotron h1')
-      .fitText(0.5)
-      .textillate({ in: { effect: 'flipInY' }});
-
-    $('.jumbotron p')
-      .fitText(3.2, { maxFontSize: 32 })
-      .textillate({ initialDelay: 1000, in: { delay: 3, shuffle: true } });
-
-    setTimeout(function () {
-        $('.fade').addClass('in');
-    }, 250);
-
-    setTimeout(function () {
-      $('h1.glow').removeClass('in');
-    }, 2000);
-
-    var $tlt = $viewport.find('.tlt')
-      .on('start.tlt', log('start.tlt triggered.'))
-      .on('inAnimationBegin.tlt', log('inAnimationBegin.tlt triggered.'))
-      .on('inAnimationEnd.tlt', log('inAnimationEnd.tlt triggered.'))
-      .on('outAnimationBegin.tlt', log('outAnimationBegin.tlt triggered.'))
-      .on('outAnimationEnd.tlt', log('outAnimationEnd.tlt triggered.'))
-      .on('end.tlt', log('end.tlt'));
-
-    $form.on('change', function () {
-      var obj = getFormData();
-      $tlt.textillate(obj);
-    }).trigger('change');
-
-    });
-
-    </script>
-    
-</head>
-<body>
-    <div class="decal"></div>
-		<div class="jumbotron">
-			<div class="container">
-  		  <h1 class="glow in tlt">joanlane.ie</h1>
-  		  <!--<p class="tlt" data-in-effect="bounceInDown">
-  		  	Coming Soon...
-  		  </p>-->
-        </div>
-  	</div>
-    <div class="grid grid-pad">
-        <section class="col-1-1">
-            <div class="playground grid">
-              <div class="col-1-1 viewport">
-                  <div class="tlt">
-                    <ul class="texts" style="display: none">
-                       <li data-id="wizard">....</li>
-                      <li data-id="fox">Coming Soon...</li>
-                    </ul>
-                  </div>
-              </div>
-              <div class="col-1-1 controls" style="padding-right: 0" >
-                <form class="grid grid-pad" style="visibility: hidden">
-                  <div class="control col-1-2">
-                    <label>In Animation</label>
-                    <select data-key="effect" data-type="in"></select>
-                    <select data-key="type" data-type="in">
-                      <option value="">sequence</option>
-                      <option value="reverse">reverse</option>
-                      <option value="sync">sync</option>
-                      <option value="shuffle">shuffle</option>
-                    </select>
-                  </div>
-                  <div class="control col-1-2">
-                    <label>Out Animation</label>
-                    <select data-key="effect" data-type="out"></select>
-                    <select data-key="type" data-type="out">
-                      <option value="">sequence</option>
-                      <option value="reverse">reverse</option>
-                      <option value="sync">sync</option>
-                      <option selected="selected" value="shuffle">shuffle</option>
-                    </select>
-                  </div>
-                </form>
-              </div>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Joan Lane Home</title>
+		<meta name="description" content="A personal website to showcase projects and work experience of Joan Lane" />
+		<meta name="keywords" content="canvas, ambient, background, animation, javascript, web development" />
+		<link rel="stylesheet" type="text/css" href="css/JLstylesheet.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Poiret+One|Sacramento&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300|Julius+Sans+One|Poiret+One|Poppins|Quicksand&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="js/jsfile.js"></script>
+        <script>
+            $(window).load(function() {
+		      // Animate loader off screen
+		      $(".loader").fadeOut("1600, complete");
+	       });
+        </script>
+		<script>
+            document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");
+        </script>
+	</head>
+	<body>
+        <div class="loader"></div> 
+        <div id="container">
+        <header>
+            <div id="headerContent">
+                <div id="logo">
+                    <a href="index.html">
+                    <img src="img/logoFiller.png" style="width:60px" alt="Website Logo">
+                    </a>
+                </div>
+                <nav class="menu">
+				    <div class="page_links">	
+                        <a href="index.html" class="current">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="portfolio.html">Portfolio</a>
+                        <a href="#">CV</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </nav>
             </div>
-        </section>
-      </div>
-    <footer>
-    
-</footer>
-</body>
+            <div class="dropdown">
+                <div id="mobilelogo">
+                    <a href="index.html"><img src="img/logoFiller.png" style="width:40px" alt="Website Logo"></a>
+                </div>
+                <button onclick="myFunction()" class="dropbtn">MENU</button>
+                <nav class="dropdown-content" id="myDropdown">
+                    <div><a href="index.html" class="current">Home</a></div>
+                    <div><a href="about.html">About</a></div>
+                    <div><a href="portfolio.html">Portfolio</a></div>
+                    <div><a href="#">CV</a></div>
+                    <div><a href="#">Contact</a></div>
+                </nav>  
+            </div>
+        </header>
+		<main>
+            <div class="main-content">
+                <h1>joan lane</h1>
+                <div class="caption">
+                    <p>Lorem Ipsum is simply dummy text of the printing and</p>
+                    <p>typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
+                </div>
+                <h2><a href="#">Explore ></a></h2>
+            </div>
+		</main>
+        <footer>
+            <p> &copy; Joan Lane</p>
+        </footer>
+        </div>
+        <div class="content content--canvas" style="z-index:-9999">
+        </div>
+		<script src="js/noise.min.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/shift.js"></script>
+	</body>
 </html>
