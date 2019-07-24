@@ -3,7 +3,7 @@
 const circleCount = 150;
 const circlePropCount = 8;
 const circlePropsLength = circleCount * circlePropCount;
-const baseSpeed = 0.1;
+const baseSpeed = 0.5;
 const rangeSpeed = 1;
 const baseTTL = 150;
 const rangeTTL = 200;
