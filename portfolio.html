@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Joan Lane Home</title>
+		<meta name="description" content="A personal website to showcase projects and work experience of Joan Lane" />
+		<meta name="keywords" content="canvas, ambient, background, animation, javascript, web development" />
+		<link rel="stylesheet" type="text/css" href="css/JLstylesheet.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Poiret+One|Sacramento&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300|Julius+Sans+One|Poiret+One|Poppins|Quicksand&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="js/jsfile.js"></script>
+        <script>
+            $(window).load(function() {
+		      // Animate loader off screen
+		      $(".loader").fadeOut("1600, complete");
+	       });
+        </script>
+		<script>
+            document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");
+        </script>
+	</head>
+	<body>
+        <div class="loader"></div> 
+        <div id="container">
+        <header>
+            <div id="headerContent">
+                <div id="logo">
+                    <a href="index.html">
+                    <img src="img/logoFiller.png" style="width:60px" alt="Website Logo">
+                    </a>
+                </div>
+                <nav class="menu">
+				    <div class="page_links">	
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="portfolio.html" class="current">Portfolio</a>
+                        <a href="#">CV</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="dropdown">
+                <div id="mobilelogo">
+                    <a href="index.html"><img src="img/logoFiller.png" style="width:40px" alt="Website Logo"></a>
+                </div>
+                <button onclick="myFunction()" class="dropbtn">MENU</button>
+                <nav class="dropdown-content" id="myDropdown">
+                    <div><a href="index.html">Home</a></div>
+                    <div><a href="about.html">About</a></div>
+                    <div><a href="portfolio.html">Portfolio</a></div>
+                    <div><a href="#">CV</a></div>
+                    <div><a href="#">Contact</a></div>
+                </nav>  
+            </div>
+        </header>
+		<main>
+            <div class="main-content">
+                <h1>PORTFOLIO</h1>
+                <div class="caption">
+                    <p>Lorem Ipsum is simply dummy text of the printing and</p>
+                    <p>typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
+                </div>
+                <h2><a href="#">Explore ></a></h2>
+            </div>
+		</main>
+        <footer>
+            <p> &copy; Joan Lane</p>
+        </footer>
+        </div>
+        <div class="content content--canvas" style="z-index:-9999">
+        </div>
+		<script src="js/noise.min.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/shift.js"></script>
+	</body>
+</html>
