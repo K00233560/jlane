@@ -97,19 +97,17 @@ html, body {
     
     main {
         grid-area:cont;
-        grid-template-columns: 3;
-        grid-template-rows: 3;
         display: grid;
-        grid-template-columns: .5fr 2fr .5fr;
-        grid-template-rows: 3fr .5fr .5fr;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
     }
     
     .main-content {
-        grid-column-start: 2;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         text-align: center;
+        padding: 1em;
     }
     
     .main-content h1 {
@@ -124,8 +122,6 @@ html, body {
     }
     
     .main-content .caption{
-        grid-column-start: 2;
-        grid-row-start: 2;
         font-family:  'Poiret One', cursive; 
         text-align: center;
         font-size:1em;
@@ -133,8 +129,6 @@ html, body {
     }
     
     .main-content .caption p {
-        grid-column-start: 2;
-        grid-row-start: 2;
         //color: white;
         color: rgba(250, 250, 250, 0.3);
         font-family:  'Poiret One', cursive; 
@@ -144,7 +138,6 @@ html, body {
     
     
     .main-content h2 {
-        grid-row-start: 3;
         font-size: 1.5em;
         color: white;
         font-family:  'Poiret One', cursive;   
@@ -177,11 +170,11 @@ html, body {
     footer {
         grid-area: footer;
         bottom:0;
-        text-align: center;
+        text-align: left;
         color: white;
         font-family:  'Poiret One', cursive;
-        //padding-right: 20px;
-        padding-bottom: 20px;
+        padding-left: 2em;
+        padding-bottom: 2em;
     }
 }
 
@@ -400,12 +393,35 @@ header {
     grid-template-rows: 1fr;
 }
     
-    #headerContent {
+#headerContent {
         display:none;
     }
+    
+#mobilelogo {
+    grid-column: 1 / span 12;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-content: center;
+    justify-content: center;
+    background:transparent;
+    padding: 1em;
+    }
+    
+#mobilelogo a img   {
+    grid-column-start: 1;
+    width: 40px;
+    align-self: center;
+    padding: .5em;
+    
+    }
+    
+#mobilelogo a:hover{
+    background-color: transparent;    
+    }  
 
 .dropbtn {
-    background: rgba(0,0,0, 0.7);
+    grid-column-start: 3;
+    background:transparent;
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -413,11 +429,11 @@ header {
     cursor: pointer;
     width: 100%;
     margin:0;
-    grid-column: 1/ span 12;
+    //grid-column: 1/ span 12;
 }
 
 .dropbtn:hover, .dropbtn:active {
-    backgroundrgba(0,0,0, 0.8);
+    background:rgba(0,0,0, 0.8);
     outline: none;
 }
 
@@ -471,25 +487,6 @@ header {
     color: 	white;
     font-size: 14px;
 }
-
-#mobilelogo {
-    grid-column: 1 / span 12;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background-color: rgba(0,0,0, 0.7);
-    }
-    
-#mobilelogo img   {
-    width: 40px;
-    align-self: center;
-    padding-top: .5em;
-    //display: none;
-    }
-    
-#mobilelogo a:hover{
-    background-color: transparent;    
-    }  
     
     main {
         grid-area:l;
