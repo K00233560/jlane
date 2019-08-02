@@ -10,7 +10,7 @@ body {
 header {
         grid-area: header;
         background: rgba(250, 250, 250, 0.0);
-        transition: 1s;
+        transition: 0.1s;
         z-index: 20;
     }
 
